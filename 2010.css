@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0; /* Xóa padding */
+  overflow: hidden; /* Ẩn cuộn */
+}
+
+.snow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Bỏ qua sự kiện chuột */
+  z-index: 1; /* Đặt bông tuyết ở phía trước */
+}
+
+.snow {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite; /* Thêm hiệu ứng rơi */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(100vh); /* Rơi từ trên xuống */
+  }
+}
+
+.container {
+  max-width: 600px;
+  width: 90%; /* Đảm bảo khung không quá rộng */
+  padding: 20px;
+  background-color: rgba(173, 216, 230, 0.9); /* Màu xanh nhạt */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Để z-index hoạt động */
+  top: 50%; /* Đặt ở giữa theo chiều dọc */
+  left: 50%; /* Đặt ở giữa theo chiều ngang */
+  transform: translate(-50%, -50%); /* Đưa khung về giữa */
+  z-index: 0; /* Đặt khung nội dung ở phía sau bông tuyết */
+  animation: rise 2s infinite; /* Thêm hiệu ứng nổi lên */
+}
+
+@keyframes rise {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-5px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #ffd700; /* Màu vàng */
+
+  margin: 0; /* Xóa margin */
+}
+
+p {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  margin-top: 10px; /* Giảm khoảng cách */
+}
